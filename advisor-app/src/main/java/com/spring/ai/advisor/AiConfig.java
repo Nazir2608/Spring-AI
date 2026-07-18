@@ -16,7 +16,7 @@ public class AiConfig {
     @Bean
     public ChatClient chatClient(ChatClient.Builder builder) {
         return builder
-                .defaultAdvisors(new TokenPrintAdvisor(),new SimpleLoggerAdvisor(),new SafeGuardAdvisor(List.of("game", "politics", "violence")))
+                .defaultAdvisors(new TokenPrintAdvisor(),new SafeGuardAdvisor(List.of("game", "politics", "violence")))
                 .defaultSystem("you are helpful coding assistant..")
                 .defaultOptions(OllamaChatOptions
                         .builder()
