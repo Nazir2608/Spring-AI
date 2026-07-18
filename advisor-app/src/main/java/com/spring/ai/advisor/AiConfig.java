@@ -1,5 +1,6 @@
 package com.spring.ai.advisor;
 
+import com.spring.ai.advisor.advisor.TokenPrintAdvisor;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.SafeGuardAdvisor;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
@@ -15,7 +16,7 @@ public class AiConfig {
     @Bean
     public ChatClient chatClient(ChatClient.Builder builder) {
         return builder
-                .defaultAdvisors(new SimpleLoggerAdvisor(),new SafeGuardAdvisor(List.of("game", "politics", "violence")))
+                .defaultAdvisors(new TokenPrintAdvisor(),new SimpleLoggerAdvisor(),new SafeGuardAdvisor(List.of("game", "politics", "violence")))
                 .defaultSystem("you are helpful coding assistant..")
                 .defaultOptions(OllamaChatOptions
                         .builder()
